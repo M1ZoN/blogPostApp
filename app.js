@@ -14,6 +14,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const PASSWORD = process.env.PASSWORD
 const USER = process.env.USER
 const DATABASE = process.env.DATABASE
+const PORT = (process.env.PORT || 3000)
 
 const app = express();
 mongoose.connect("mongodb+srv://" + USER + ":" + PASSWORD + "@cluster0.s3mwb.mongodb.net/" + DATABASE + "?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
@@ -92,6 +93,6 @@ app.get("/posts/:postName", function(req, res){
 
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(PORT, function() {
+  console.log("Server started on port: " + PORT);
 });
